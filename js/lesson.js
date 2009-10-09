@@ -20,7 +20,8 @@ $(document).ready(function(){
 
 	var g = game(paper,k.library.images["capital"].src);
 	var q = g.newquestion();
-	document.getElementById('question').innerHTML = q.getPhrase;
+	$('#question').html(q.getPhrase);
+
 	
 	var clicked = function(event){
 	    var x = event.clientX + document.documentElement.scrollLeft - OFFSET;
@@ -30,7 +31,7 @@ $(document).ready(function(){
 		g.draw();
 		q = g.newquestion();
 	    }
-	    document.getElementById('question').innerHTML = q.getPhrase;
+	    $('question').html(q.getPhrase);
 	}
 
 	var draw = function() {
@@ -39,11 +40,10 @@ $(document).ready(function(){
 	    g.draw();
 	}
 
-	
-	document.getElementById('mycanvas').addEventListener('click', clicked, false);
+	$('#mycanvas').bind('click', clicked, false);
 
-	document.getElementById('start').
-	    addEventListener('click', draw, false);
+	$('#start').bind('click', draw, false);
+
     });
 });
 	
