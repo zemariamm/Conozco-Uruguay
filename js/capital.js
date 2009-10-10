@@ -36,7 +36,7 @@ function random_between(upperbound) {
 		}
 		if (selected.isClickingp(x,y))
 		{
-		    selected.toogle();
+		    selected.toggle();
 		    selected = undefined;
 		    return true;
 		}
