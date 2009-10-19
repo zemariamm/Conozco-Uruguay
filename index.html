@@ -10,12 +10,31 @@
 <!--    <script type="text/javascript" src="js/lesson.js"></script>
     <script type="text/javascript" src="js/capital.js"></script> -->
 
+    <SCRIPT TYPE="TEXT/JAVASCRIPT">
+      
+      $(document).ready(function(){
+
+	  var mysvg = document.getElementById('mysvg');
+
+	  $('#mysvg').bind('load', function() {
+	      var svgDoc = mysvg.getSVGDocument();
+	      var myCity = svgDoc.getElementById('artigas')
+	      myCity.addEventListener('click', 
+				      function(){ document.write('foo');}, false);
+	      svgDoc.documentElement.currentScale = 0.7;
+	
+      
+	  });
+
+    });
+
+    </script>
 
 
   </head>
   <body>
     <div id="mycanvas">
-      <embed id="mysvg" src="assets/generic/images/capitals.svg" width="786" height="900"/>
+      <embed id="mysvg" src="assets/generic/images/capitals.svg" width="790" height="900"/>
     </div>
     <div id="karma-main">
     </div>
@@ -24,20 +43,7 @@
     </div>
     <div id="question"></div>
 
-<script type="text/javascript">
-	var svgDoc = document.getElementById('mysvg').getSVGDocument();
-    svgDoc.ready(function(){
-
-	var myCity = svgDoc.getElementById('artigas');
-	svgDoc.addEventListener('click', function(){ document.write('foo');}, false);
-
-//	$('#svg2').bind('click', function(e) { document.write('foo');});
-
-//	$('#artigas').attr('fill', '#00ff00');
-    });
-
-</script>
-
+    
 
     
   </body>

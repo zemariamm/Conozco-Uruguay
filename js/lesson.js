@@ -16,7 +16,7 @@ $(document).ready(function(){
     });
 
     k.main(function() {
-	var paper = Raphael("mycanvas",DEFAULT_SIZE_X,DEFAULT_SIZE_Y);
+     	var paper = Raphael("mycanvas",DEFAULT_SIZE_X,DEFAULT_SIZE_Y);
 
 	var g = game(paper,k.library.images["capital"].src);
 	var q = g.newquestion();
@@ -43,7 +43,7 @@ $(document).ready(function(){
 	$('#mycanvas').bind('click', clicked, false);
 
 	$('#start').bind('click', draw, false);
-
+     
     });
 });
 	
