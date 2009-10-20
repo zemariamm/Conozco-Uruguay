@@ -253,26 +253,110 @@
        id="tspan3307"
        sodipodi:role="line">Salto</tspan></text>
   <path
-     class="capital city salto"
-     transform="translate(96.86886,265.8485)"
+     class="capital city tacuarembo"
+     transform="translate(105.00107,271.94766)"
      d="M 331.38748,54.892403 A 15.24789,14.231364 0 1 1 300.8917,54.892403 A 15.24789,14.231364 0 1 1 331.38748,54.892403 z"
      sodipodi:ry="14.231364"
      sodipodi:rx="15.24789"
      sodipodi:cy="54.892403"
      sodipodi:cx="316.13959"
-     id="path3309"
+     id="capTacuarembo"
      style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
      sodipodi:type="arc" />
   <text
-     class="text capital salto"
-     id="text3311"
-     y="385.79858"
-     x="405.89276"
+     class="text capital tacuarembo"
+     id="textTacuarembo"
+     y="371.56723"
+     x="377.43002"
      style="font-size:28px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
      xml:space="preserve"><tspan
        style="font-size:28px;font-weight:bold;-inkscape-font-specification:Bitstream Vera Sans Bold"
-       y="385.79858"
-       x="405.89276"
+       y="371.56723"
+       x="377.43002"
        id="tspan3313"
-       sodipodi:role="line">Salto</tspan></text>
+       sodipodi:role="line">Tacuarembo</tspan></text>
+  <path
+     class="capital city paysandu"
+     transform="translate(-253.6591,401.04647)"
+     d="M 331.38748,54.892403 A 15.24789,14.231364 0 1 1 300.8917,54.892403 A 15.24789,14.231364 0 1 1 331.38748,54.892403 z"
+     sodipodi:ry="14.231364"
+     sodipodi:rx="15.24789"
+     sodipodi:cy="54.892403"
+     sodipodi:cx="316.13959"
+     id="capPaysandu"
+     style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+     sodipodi:type="arc" />
+  <text
+     class="text capital paysandu"
+     id="textPaysandu"
+     y="453.90585"
+     x="87.893616"
+     style="font-size:28px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+     xml:space="preserve"><tspan
+       style="font-size:28px;font-weight:bold;-inkscape-font-specification:Bitstream Vera Sans Bold"
+       y="453.90585"
+       x="87.893616"
+       id="tspan3359"
+       sodipodi:role="line">Paysandu</tspan></text>
+  <path
+     class="capital city paysandu"
+     transform="translate(-284.32216,570.00906)"
+     d="M 331.38748,54.892403 A 15.24789,14.231364 0 1 1 300.8917,54.892403 A 15.24789,14.231364 0 1 1 331.38748,54.892403 z"
+     sodipodi:ry="14.231364"
+     sodipodi:rx="15.24789"
+     sodipodi:cy="54.892403"
+     sodipodi:cx="316.13959"
+     id="path3361"
+     style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+     sodipodi:type="arc" />
+  <text
+     class="text capital frayBentos rioNegro"
+     id="textFrayBentos"
+     y="555.77771"
+     x="20.635614"
+     style="font-size:28px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+     xml:space="preserve"><tspan
+       style="font-size:28px;font-weight:bold;-inkscape-font-specification:Bitstream Vera Sans Bold"
+       y="555.77771"
+       x="20.635614"
+       id="tspan3365"
+       sodipodi:role="line">Fray </tspan><tspan
+       style="font-size:28px;font-weight:bold;-inkscape-font-specification:Bitstream Vera Sans Bold"
+       y="590.77771"
+       x="20.635614"
+       sodipodi:role="line"
+       id="tspan3367">Bentos</tspan></text>
+  <path
+     transform="translate(-227.21941,601.09072)"
+     style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+     d="M 331.38748,54.892403 C 331.38748,62.748116 324.55642,69.123767 316.13959,69.123767 C 307.72275,69.123767 300.8917,62.748116 300.8917,54.892403 C 300.8917,47.03669 307.72275,40.661038 316.13959,40.661038 C 324.55642,40.661038 331.38748,47.03669 331.38748,54.892403 z"
+     id="capMercedes" />
+  <text
+     class="text capital mercedes soriano"
+     id="textMercedes"
+     y="645.81781"
+     x="108.23414"
+     style="font-size:28px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+     xml:space="preserve"><tspan
+       style="font-size:28px;font-weight:bold;-inkscape-font-specification:Bitstream Vera Sans Bold"
+       y="645.81781"
+       x="108.23414"
+       sodipodi:role="line"
+       id="tspan3375">Mercedes</tspan></text>
+  <path
+     style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:0;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+     d="M 350.29567,655.39729 C 350.29567,663.253 343.46461,669.62865 335.04777,669.62865 C 326.63093,669.62865 319.79988,663.253 319.79988,655.39729 C 319.79988,647.54157 326.63093,641.16592 335.04777,641.16592 C 343.46461,641.16592 350.29567,647.54157 350.29567,655.39729 z"
+     id="path3380" />
+  <text
+     class="text capital mercedes soriano"
+     id="text3382"
+     y="628.96753"
+     x="354.36172"
+     style="font-size:28px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+     xml:space="preserve"><tspan
+       style="font-size:28px;font-weight:bold;-inkscape-font-specification:Bitstream Vera Sans Bold"
+       y="628.96753"
+       x="354.36172"
+       sodipodi:role="line"
+       id="tspan3384">Mercedes</tspan></text>
 </svg>
