@@ -1,0 +1,14 @@
+#map{
+    width: 60%;
+    height: 100%;
+    display: inline;
+    float: left;
+}
+
+#questionArea{
+    width: 40%;
+    height: 100%;
+    display: inline;
+    float: left;
+    
+}

@@ -1,49 +1,110 @@
 $(document).ready(function(){
+
+    var k = $.karma({container: "#karma-main", lang: "en"});
     
-    var SVG_EMBED = document.getElementById('mysvg');
-    var MAX_SCREEN_X = 1200;
-    var MAX_SCREEN_Y = 900;
+    k.init();
+    
+    
+    k.main(function() {
 
-    // You can't access any properties of the svg document 
-    // until it has loaded
-    $('#mysvg').bind('load', function() {
-	var SVG_DOC = SVG_EMBED.getSVGDocument();
-	/*  var myCity = svgDoc.getElementById('capArtigas')
-	      myCity.addEventListener('click', 
-	      function(){ document.write('foo');}, false);
-        */
+	//Program constants
+	var SVG_MAP = document.getElementById('mysvg');
+	var MAX_SCREEN_X = 1200, MAX_SCREEN_Y = 900;
+	var CAPITALS = [['Artigas', 'capArtigas'], 
+	    ['Rivera', 'capRivera'], ['Salto', 'capSalto']];
 
-	$('.text', SVG_DOC).attr('display', 'none');
-  	$.map($('.capital.city', SVG_DOC), function(elem){
-	    $(elem, SVG_DOC).bind('click', function() { document.write('foo');
-						     })});
-	
-	
+	//Game Control
+	var isActive = true;
+	var question = [];
+	var answeredCorrect = false;
 
-	var scaleView = function (svgElem, width, height) {
-	    var newRatio = 1;
-	    var xRatio = width/MAX_SCREEN_X;
-	    var yRatio = height/MAX_SCREEN_Y;
+	var questions = CAPITALS;
 
-	    //get the smallest ratio
-	    newRatio = xRatio > yRatio ? yRatio : xRatio;
 
-	    if (newRatio > 1) {
-		//do nothing
-		return newRatio;
-	    } else {
-		svgElem.currentScale = newRatio - 0.05;
-		return newRatio;
-	    }
-	};
+	// You can't access any properties of the svg document 
+	// until it has loaded
+	$('#mysvg').bind('load', function() {
+	    var svgMapDoc = SVG_MAP.getSVGDocument();
 
-	var hideElements = function () {
-	
-	};
-      
-	scaleView(SVG_DOC.documentElement, window.innerWidth, 
-		  window.innerHeight);
+	    //utility functions
+	    var scaleView = function (svgElem, width, height) {
+		var newRatio = 1;
+		var xRatio = width/MAX_SCREEN_X;
+		var yRatio = height/MAX_SCREEN_Y;
 
+		//get the smallest ratio
+		newRatio = xRatio > yRatio ? yRatio : xRatio;
+
+		if (newRatio < 1) {
+		    svgElem.currentScale = newRatio - 0.05;
+		    return newRatio;	
+		} else {
+		    //do nothing
+		    return newRatio;
+		}
+	    };
+
+	    var hideAnswers = function (svgRoot) {
+		$('.text', svgRoot).attr('display', 'none');
+	    };
+
+	    scaleView(svgMapDoc.documentElement, window.innerWidth, 
+		      window.innerHeight);
+
+	    hideAnswers(svgMapDoc);
+
+	    //gameplay functions
+	    var changeQuestion = function (questions){
+		var index = Math.round(Math.random() * questions.length);
+		var question = questions[index];
+		
+		//drop the city used from the list of answers
+		if (index === 1 ){
+		    questions.shift();
+		} else {
+		    questions.splice(index-1, 1)
+		}
+		
+		return question;
+	    };
+
+	    var askQuestion = function (questions) {
+		question = changeQuestion(questions);		
+		
+		$('#question').text("What is the capital of " + 
+				    question[0] + "?");
+
+	    };
+
+
+	    var checkAnswer = function (elemName) {
+		if(isActive){
+		    if ( question[1] === elemName){
+			$('#answer').text("Correct! " + 
+					  elemName + " is the capital of " + 
+					  question[0]);
+		    } else {
+			
+		    }
+		} else {
+		    //do nothing
+		}
+		
+
+	    };
+
+  	    $.map($('.capital.city', svgMapDoc), function(elem){
+		$(elem, svgMapDoc).bind('click', function(event) {
+		    checkAnswer(event.target.id);
+		})
+	    });
+	    
+	    askQuestion(questions);
+
+	    
+	    
+
+	});
     });
 });
 
