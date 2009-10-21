@@ -89,7 +89,7 @@ $(document).ready(function(){
 		question = changeQuestion(questions);		
 		
 		$('#question').text("Where is the capital of " + 
-				    question.dept + "?");
+				    question.deptName + "?");
 
 	    };
 
