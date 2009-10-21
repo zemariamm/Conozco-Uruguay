@@ -10,8 +10,25 @@ $(document).ready(function(){
 	//Program constants
 	var SVG_MAP = document.getElementById('mysvg');
 	var MAX_SCREEN_X = 1200, MAX_SCREEN_Y = 900;
-	var CAPITALS = [['Artigas', 'capArtigas'], 
-	    ['Rivera', 'capRivera'], ['Salto', 'capSalto']];
+	var CAPITALS = [{dept:'artigas', capital:'artigas', deptName:'Artigas', capitalName:'Artigas'}, 
+	    {dept:'rivera', capital:'rivera', deptName:'Rivera', capitalName:'Rivera'}, 
+	    {dept:'salto', capital:'salto', deptName:'Salto', capitalName:'Salto'},
+	    {dept:'paysandu', capital:'paysandu', deptName:'Paysandu', capitalName:'Paysandu'},
+	    {dept:'rioNegro', capital:'frayBentos', deptName:'Rio Negro', capitalName:'Fray Bentos'},
+	    {dept:'tacuarembo', capital:'tacuarembo', deptName:'Tacuarembo', capitalName:'Tacuarembo'},
+	    {dept:'cerroLargo', capital:'melo', deptName:'Cerro Largo', capitalName:'Melo'},
+	    {dept:'durazno', capital:'durazno', deptName:'Durazno', capitalName:'Durazno'},
+	    {dept:'treintaYTres', capital:'treintaYTres', deptName:'Treinta Y Tres', capitalName:'Treinta Y Tres'},
+	    {dept:'soriano', capital:'mercedes', deptName:'Soriano', capitalName:'Mercedes'},
+	    {dept:'flores', capital:'trinidad', deptName:'Flores', capitalName:'Trinidad'},
+	    {dept:'colonia', capital:'colonia', deptName:'Colonia', capitalName:'Colonia'},
+	    {dept:'sanJose', capital:'sanJose', deptName:'San Jose', capitalName:'San Jose de Mayo'},
+	    {dept:'montevideo', capital:'montevideo', deptName:'Montevideo', capitalName:'Montevideo'},
+	    {dept:'lavalleja', capital:'minas', deptName:'Lavalleja', capitalName:'Minas'},
+	    {dept:'rocha', capital:'rocha', deptName:'Rocha', capitalName:'Rocha'},		       
+	    {dept:'canelones', capital:'canelones', deptName:'Canelones', capitalName:'Canelones'},		      
+	    {dept:'maldonado', capital:'maldonado', deptName:'Maldonado', capitalName:'Maldonado'},		      
+		       ];
 
 	//Game Control
 	var isActive = true;
@@ -55,14 +72,14 @@ $(document).ready(function(){
 
 	    //gameplay functions
 	    var changeQuestion = function (questions){
-		var index = Math.round(Math.random() * questions.length);
+		var index = Math.round(Math.random() * (questions.length - 1));
 		var question = questions[index];
 		
 		//drop the city used from the list of answers
-		if (index === 1 ){
+		if (index === 0 ){
 		    questions.shift();
 		} else {
-		    questions.splice(index-1, 1)
+		    questions.splice(index, 1)
 		}
 		
 		return question;
@@ -71,20 +88,25 @@ $(document).ready(function(){
 	    var askQuestion = function (questions) {
 		question = changeQuestion(questions);		
 		
-		$('#question').text("What is the capital of " + 
-				    question[0] + "?");
+		$('#question').text("Where is the capital of " + 
+				    question.dept + "?");
 
 	    };
 
 
-	    var checkAnswer = function (elemName) {
+	    var checkAnswer = function (mapElem) {
 		if(isActive){
-		    if ( question[1] === elemName){
-			$('#answer').text("Correct! " + 
-					  elemName + " is the capital of " + 
-					  question[0]);
+		    if ( ("cap" + question.capital).toLowerCase() === mapElem.id.toLowerCase()){
+			$('#answer').text("Correct! " + question.capitalName +
+				  " is the capital of " + question.deptName);
+			$('.text.' + question.dept, svgMapDoc).attr('display',
+								'');
+			var timerID = setTimeout(function() {
+			    $('#answer').text('');
+			    askQuestion(questions);
+			}, 3000);
 		    } else {
-			
+			$('#answer').text("Incorrect. Please try again.");
 		    }
 		} else {
 		    //do nothing
@@ -95,7 +117,7 @@ $(document).ready(function(){
 
   	    $.map($('.capital.city', svgMapDoc), function(elem){
 		$(elem, svgMapDoc).bind('click', function(event) {
-		    checkAnswer(event.target.id);
+		    checkAnswer(event.target);
 		})
 	    });
 	    

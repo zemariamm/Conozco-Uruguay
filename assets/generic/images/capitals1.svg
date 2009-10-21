@@ -40,7 +40,7 @@
      pagecolor="#ffffff"
      id="base"
      showgrid="false"
-     inkscape:zoom="0.49187133"
+     inkscape:zoom="0.6"
      inkscape:cx="451.85339"
      inkscape:cy="495.0624"
      inkscape:window-x="0"
@@ -301,14 +301,14 @@
        id="tspan3359"
        sodipodi:role="line">Paysandú</tspan></text>
   <path
-     class="capital city paysandu"
+     class="capital city rioNegro frayBentos"
      transform="matrix(0.588227,0,0,0.6349125,-157.57899,529.10736)"
      d="M 331.38748,54.892403 A 15.24789,14.231364 0 1 1 300.8917,54.892403 A 15.24789,14.231364 0 1 1 331.38748,54.892403 z"
      sodipodi:ry="14.231364"
      sodipodi:rx="15.24789"
      sodipodi:cy="54.892403"
      sodipodi:cx="316.13959"
-     id="path3361"
+     id="capFrayBentos"
      style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:0;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
      sodipodi:type="arc" />
   <text
@@ -423,7 +423,7 @@
      style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:4.57013035;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:0;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
      d="M 484.75783,779.36916 C 484.75783,784.27647 489.41896,788.25923 495.16211,788.25923 C 500.90528,788.25923 505.5664,784.27647 505.5664,779.36916 C 505.5664,774.46182 500.90528,770.47907 495.16211,770.47907 C 489.41896,770.47907 484.75783,774.46182 484.75783,779.36916 z"
      id="capMinas"
-     class="capital city lavalleja" />
+     class="capital city lavalleja minas" />
   <text
      class="text capital treintaYTres"
      id="textTreintaYTres"
@@ -444,7 +444,7 @@
      class="capital city florida" />
   <text
      class="text capital florida"
-     id="text2518"
+     id="textFlorida"
      y="722.81641"
      x="318.53119"
      style="font-size:25.1361866px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
@@ -461,7 +461,7 @@
      id="capColonia"
      class="capital city colonia" />
   <text
-     class="text capital durazno"
+     class="text capital Colonia"
      id="textColonia"
      y="835.05359"
      x="48.681427"
@@ -512,8 +512,8 @@
   <path
      style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:4.27786922;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:0;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
      d="M 348.75343,806.03914 C 348.75343,811.02681 344.73521,815.0748 339.78419,815.0748 C 334.83319,815.0748 330.81498,811.02681 330.81498,806.03914 C 330.81498,801.05143 334.83319,797.00345 339.78419,797.00345 C 344.73521,797.00345 348.75343,801.05143 348.75343,806.03914 z"
-     id="path3531"
-     class="capital city durazno" />
+     id="capCanelones"
+     class="capital city canelones" />
   <text
      class="text capital canelones"
      id="textCanelones"
