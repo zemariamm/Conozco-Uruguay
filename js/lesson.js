@@ -1,12 +1,5 @@
 $(document).ready(function(){
 
-    var k = $.karma({container: "#karma-main", lang: "en"});
-    
-    k.init();
-    
-    
-    k.main(function() {
-
 	//Program constants
 	var SVG_MAP = document.getElementById('mysvg');
 	var MAX_SCREEN_X = 1200, MAX_SCREEN_Y = 900;
@@ -127,6 +120,6 @@ $(document).ready(function(){
 	    
 
 	});
-    });
+
 });
 
