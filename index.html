@@ -1,23 +1,36 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <title>Karma - Connoszco Uruguay</title>
-    <meta name="keywords" content="karma,javascript,html5,sugar,sugarlabs,gsoc,ole,nepal,urugay" />
+    <title>Conozco a Uruguay</title>
+    <meta name="keywords" 
+	  content="karma,javascript,html5,sugar,sugarlabs,gsoc,ole,nepal,urugay" />
+    <link rel="stylesheet" type="text/css" href="jquery.svg.css" />
+    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <script type="text/javascript" src="js/raphael-min.js"></script>
     <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
     <script type="text/javascript" src="js/jquery.karma.js"></script>
     <script type="text/javascript" src="js/karma.Gettext.js"></script>
+    <script type="text/javascript" src="js/jquery.svg.pack.js"></script>
+    <script type="text/javascript" src="js/jquery.svgdom.pack.js"></script>
     <script type="text/javascript" src="js/lesson.js"></script>
-    <script type="text/javascript" src="js/capital.js"></script>
+    
+
   </head>
   <body>
-    <div id="buttons">
-      <button id="start">Start</button>
+    <div id="map">
+      <embed id="mysvg" src="assets/generic/images/capitals1.svg" width="820" height="900"/>
     </div>
-    <div id="question"></div>
-    <div id="mycanvas"></div>
+    <div id="questionArea">
+      <div id="buttons">
+	<button id="startButton">Start</button>
+	<button id="resetButton">Reset</button>
+      </div>
+      <div id="question"></div>
+      <div id="answer"></div>
+    </div>
     <div id="karma-main">
+      <!-- Karma uses this as an area to pre-load and hide images, 
+      canvas, and audio elements in the DOM that you will use later -->
     </div>
   </body>
 </html>

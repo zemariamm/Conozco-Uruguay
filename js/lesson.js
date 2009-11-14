@@ -1,54 +1,125 @@
 $(document).ready(function(){
-    var DEFAULT_SIZE_X = 786;
-    var DEFAULT_SIZE_Y = 900;
-    //stupid hack, find out how to calc the diff between image and top
-    // of webpage
-    var OFFSET = 8;
-    var g = game();
 
-    var k = $.karma({container: "#karma-main"})
-    k.init({
-	images : [
-	    {name : "background", file : "fondo.png", localized : false },
-	    {name : "capital", file : "capital.png" , localized : false},
-	    {name : "lines", file : "deptosLineas.png", localized: false}
-	]
-    });
+	//Program constants
+	var SVG_MAP = document.getElementById('mysvg');
+	var MAX_SCREEN_X = 1200, MAX_SCREEN_Y = 900;
+	var CAPITALS = [{dept:'artigas', capital:'artigas', deptName:'Artigas', capitalName:'Artigas'}, 
+	    {dept:'rivera', capital:'rivera', deptName:'Rivera', capitalName:'Rivera'}, 
+	    {dept:'salto', capital:'salto', deptName:'Salto', capitalName:'Salto'},
+	    {dept:'paysandu', capital:'paysandu', deptName:'Paysandu', capitalName:'Paysandu'},
+	    {dept:'rioNegro', capital:'frayBentos', deptName:'Rio Negro', capitalName:'Fray Bentos'},
+	    {dept:'tacuarembo', capital:'tacuarembo', deptName:'Tacuarembo', capitalName:'Tacuarembo'},
+	    {dept:'cerroLargo', capital:'melo', deptName:'Cerro Largo', capitalName:'Melo'},
+	    {dept:'durazno', capital:'durazno', deptName:'Durazno', capitalName:'Durazno'},
+	    {dept:'treintaYTres', capital:'treintaYTres', deptName:'Treinta Y Tres', capitalName:'Treinta Y Tres'},
+	    {dept:'soriano', capital:'mercedes', deptName:'Soriano', capitalName:'Mercedes'},
+	    {dept:'flores', capital:'trinidad', deptName:'Flores', capitalName:'Trinidad'},
+	    {dept:'colonia', capital:'colonia', deptName:'Colonia', capitalName:'Colonia'},
+	    {dept:'sanJose', capital:'sanJose', deptName:'San Jose', capitalName:'San Jose de Mayo'},
+	    {dept:'montevideo', capital:'montevideo', deptName:'Montevideo', capitalName:'Montevideo'},
+	    {dept:'lavalleja', capital:'minas', deptName:'Lavalleja', capitalName:'Minas'},
+	    {dept:'rocha', capital:'rocha', deptName:'Rocha', capitalName:'Rocha'},		       
+	    {dept:'canelones', capital:'canelones', deptName:'Canelones', capitalName:'Canelones'},		      
+	    {dept:'maldonado', capital:'maldonado', deptName:'Maldonado', capitalName:'Maldonado'},		      
+		       ];
 
-    k.main(function() {
-	var paper = Raphael("mycanvas",DEFAULT_SIZE_X,DEFAULT_SIZE_Y);
+	//Game Control
+	var isActive = true;
+	var question = [];
+	var answeredCorrect = false;
 
-	var g = game(paper,k.library.images["capital"].src);
-	var q = g.newquestion();
-	$('#question').html(q.getPhrase);
+	var questions = CAPITALS;
 
-	
-	var clicked = function(event){
-	    var x = event.clientX + document.documentElement.scrollLeft - OFFSET;
-	    var y = event.clientY + document.documentElement.scrollTop - OFFSET;
-	    var ans = g.isAnswerp(x, y);
-	    if (ans) { 
-		g.draw();
-		q = g.newquestion();
-	    }
-	    $('question').html(q.getPhrase);
-	}
 
-	var draw = function() {
-	    paper.image(k.library.images["background"].src,0,0,DEFAULT_SIZE_X,DEFAULT_SIZE_Y);
-	    var i = paper.image(k.library.images["lines"].src,0,0,DEFAULT_SIZE_X,DEFAULT_SIZE_Y);
-	    g.draw();
-	}
+	// You can't access any properties of the svg document 
+	// until it has loaded
+	$('#mysvg').bind('load', function() {
+	    var svgMapDoc = SVG_MAP.getSVGDocument();
 
-	$('#mycanvas').bind('click', clicked, false);
+	    //utility functions
+	    var scaleView = function (svgElem, width, height) {
+		var newRatio = 1;
+		var xRatio = width/MAX_SCREEN_X;
+		var yRatio = height/MAX_SCREEN_Y;
 
-	$('#start').bind('click', draw, false);
+		//get the smallest ratio
+		newRatio = xRatio > yRatio ? yRatio : xRatio;
 
-    });
-});
-	
+		if (newRatio < 1) {
+		    svgElem.currentScale = newRatio - 0.05;
+		    return newRatio;	
+		} else {
+		    //do nothing
+		    return newRatio;
+		}
+	    };
 
+	    var hideAnswers = function (svgRoot) {
+		$('.text', svgRoot).attr('display', 'none');
+	    };
+
+	    scaleView(svgMapDoc.documentElement, window.innerWidth, 
+		      window.innerHeight);
+
+	    hideAnswers(svgMapDoc);
+
+	    //gameplay functions
+	    var changeQuestion = function (questions){
+		var index = Math.round(Math.random() * (questions.length - 1));
+		var question = questions[index];
+		
+		//drop the city used from the list of answers
+		if (index === 0 ){
+		    questions.shift();
+		} else {
+		    questions.splice(index, 1)
+		}
+		
+		return question;
+	    };
+
+	    var askQuestion = function (questions) {
+		question = changeQuestion(questions);		
+		
+		$('#question').text("Where is the capital of " + 
+				    question.deptName + "?");
+
+	    };
+
+
+	    var checkAnswer = function (mapElem) {
+		if(isActive){
+		    if ( ("cap" + question.capital).toLowerCase() === mapElem.id.toLowerCase()){
+			$('#answer').text("Correct! " + question.capitalName +
+				  " is the capital of " + question.deptName);
+			$('.text.' + question.dept, svgMapDoc).attr('display',
+								'');
+			var timerID = setTimeout(function() {
+			    $('#answer').text('');
+			    askQuestion(questions);
+			}, 3000);
+		    } else {
+			$('#answer').text("Incorrect. Please try again.");
+		    }
+		} else {
+		    //do nothing
+		}
+		
+
+	    };
+
+  	    $.map($('.capital.city', svgMapDoc), function(elem){
+		$(elem, svgMapDoc).bind('click', function(event) {
+		    checkAnswer(event.target);
+		})
+	    });
+	    
+	    askQuestion(questions);
 
 	    
+	    
 
-    
+	});
+
+});
+
